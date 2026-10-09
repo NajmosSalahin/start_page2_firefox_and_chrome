@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>お帰りなさい, ANON</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="script.js" defer></script>
+	</head>
+	<body>
+		<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+			<symbol id="ic-bubble" viewBox="0 0 16 16">
+				<path d="M1 2h14v9H6l-4 4v-4H1z" fill="#ffffff" stroke="#000000"/>
+				<rect x="4" y="5" width="2" height="2" fill="#000080"/>
+				<rect x="7" y="5" width="2" height="2" fill="#000080"/>
+				<rect x="10" y="5" width="2" height="2" fill="#000080"/>
+			</symbol>
+			<symbol id="ic-globe" viewBox="0 0 16 16">
+				<circle cx="8" cy="8" r="6.5" fill="#4a9ede" stroke="#000000"/>
+				<ellipse cx="8" cy="8" rx="3.25" ry="6.5" fill="none" stroke="#000000"/>
+				<path d="M1.5 8h13M8 1.5v13" stroke="#000000" fill="none"/>
+			</symbol>
+			<symbol id="ic-mail" viewBox="0 0 16 16">
+				<rect x="1" y="3" width="14" height="10" fill="#ffffff" stroke="#000000"/>
+				<path d="M1 3l7 6 7-6" fill="none" stroke="#000000"/>
+			</symbol>
+			<symbol id="ic-video" viewBox="0 0 16 16">
+				<rect x="1" y="2" width="14" height="10" fill="#c0c0c0" stroke="#000000"/>
+				<rect x="3" y="4" width="10" height="6" fill="#000080"/>
+				<path d="M6 5.5v3l3-1.5z" fill="#ffffff"/>
+				<rect x="6" y="12" width="4" height="3" fill="#808080" stroke="#000000"/>
+			</symbol>
+			<symbol id="ic-note" viewBox="0 0 16 16">
+				<rect x="4" y="3" width="1.5" height="9" fill="#000000"/>
+				<rect x="10" y="5" width="1.5" height="7" fill="#000000"/>
+				<rect x="4" y="3" width="7.5" height="2" fill="#000000"/>
+				<circle cx="3.2" cy="12.5" r="2.2" fill="#000000"/>
+				<circle cx="9.2" cy="12.5" r="2.2" fill="#000000"/>
+			</symbol>
+			<symbol id="ic-disc" viewBox="0 0 16 16">
+				<circle cx="8" cy="8" r="6.5" fill="#d4d0c8" stroke="#000000"/>
+				<circle cx="8" cy="8" r="2" fill="#ffffff" stroke="#000000"/>
+				<path d="M4 4.5A5 5 0 0 1 11.5 4" fill="none" stroke="#ffffff"/>
+			</symbol>
+			<symbol id="ic-cart" viewBox="0 0 16 16">
+				<path d="M1 2h2l1 3" fill="none" stroke="#000000"/>
+				<path d="M3 5h11l-1.5 6H5z" fill="#ffffff" stroke="#000000"/>
+				<rect x="5" y="7" width="7" height="1.5" fill="#4a9ede"/>
+				<circle cx="6" cy="13.5" r="1.5" fill="#000000"/>
+				<circle cx="11" cy="13.5" r="1.5" fill="#000000"/>
+			</symbol>
+			<symbol id="ic-map" viewBox="0 0 16 16">
+				<path d="M1 4l4.5-2v10L1 14zM5.5 2l5 2v10l-5-2zM10.5 4L15 2v10l-4.5 2z" fill="#f0e68c" stroke="#000000"/>
+			</symbol>
+		</svg>
+		<div class="maincontainer">
+			<div class="time" id="time"></div>
+
+			<div class="pane" id="main1" data-tab="main1">
+					<div class="mainbox">
+						<div class="welcome">お帰りなさい</div>
+						<div class="bookmarkscontainer">
+							<ul>
+								<li><a href="https://4chan.org/wg/" class="clink" target="_blank" rel="noopener noreferrer">/wg/</a></li>
+								<li><a href="https://4chan.org/f/" class="clink" target="_blank" rel="noopener noreferrer">/f/</a></li>
+								<li><a href="https://neo-geo.com/forums/" class="clink" target="_blank" rel="noopener noreferrer">neogeo</a></li>
+								<li><a href="https://shmups.system11.org" class="clink" target="_blank" rel="noopener noreferrer">shmups</a></li>
+								<li><a href="https://darkumbra.net/forums/" class="clink" target="_blank" rel="noopener noreferrer">darkumbra</a></li>
+							</ul>
+							<ul>
+								<li><a href="https://facebook.com" class="clink" target="_blank" rel="noopener noreferrer">facebook</a></li>
+								<li><a href="https://gmail.com" class="clink" target="_blank" rel="noopener noreferrer">gmail</a></li>
+								<li><a href="https://tumblr.com" class="clink" target="_blank" rel="noopener noreferrer">tumblr</a></li>
+								<li><a href="https://youtube.com" class="clink" target="_blank" rel="noopener noreferrer">youtube</a></li>
+								<li><a href="https://soundcloud.com" class="clink" target="_blank" rel="noopener noreferrer">soundcloud</a></li>
+							</ul>
+							<ul>
+								<li><a href="https://store.steampowered.com" class="clink" target="_blank" rel="noopener noreferrer">steam</a></li>
+								<li><a href="https://gog.com" class="clink" target="_blank" rel="noopener noreferrer">gog</a></li>
+								<li><a href="https://humblebundle.com" class="clink" target="_blank" rel="noopener noreferrer">humblebundle</a></li>
+								<li><a href="https://hce.halomaps.org" class="clink" target="_blank" rel="noopener noreferrer">halomaps</a></li>
+							</ul>
+							<ul>
+								<li><a href="https://amazon.com" class="clink" target="_blank" rel="noopener noreferrer">amazon</a></li>
+								<li><a href="https://ebay.com" class="clink" target="_blank" rel="noopener noreferrer">ebay</a></li>
+								<li><a href="https://massdrop.com" class="clink" target="_blank" rel="noopener noreferrer">massdrop</a></li>
+								<li><a href="https://j-list.com" class="clink" target="_blank" rel="noopener noreferrer">j-list</a></li>
+								<li><a href="https://redbubble.com" class="clink" target="_blank" rel="noopener noreferrer">redbubble</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="pane" id="main2" data-tab="main2" hidden>
+					<div class="mainbox">
+						<div class="win95-window">
+							<div class="w95-titlebar">
+								<span class="w95-title">my_startpage</span>
+								<span class="w95-controls">
+									<button type="button" class="w95-btn" data-win-action="min" aria-label="Minimize">_</button>
+									<button type="button" class="w95-btn" data-win-action="max" aria-label="Maximize">&#9633;</button>
+									<button type="button" class="w95-btn" data-win-action="close" aria-label="Close">&times;</button>
+								</span>
+							</div>
+							<div class="w95-menubar">
+								<span><u>F</u>ile</span>
+								<span><u>E</u>dit</span>
+								<span><u>V</u>iew</span>
+								<span><u>H</u>elp</span>
+							</div>
+							<div class="w95-body">
+								<a class="w95-shortcut" href="https://4chan.org/wg/" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">/wg/</span></a>
+								<a class="w95-shortcut" href="https://4chan.org/f/" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">/f/</span></a>
+								<a class="w95-shortcut" href="https://neo-geo.com/forums/" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">neogeo</span></a>
+								<a class="w95-shortcut" href="https://shmups.system11.org" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">shmups</span></a>
+								<a class="w95-shortcut" href="https://darkumbra.net/forums/" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">darkumbra</span></a>
+								<a class="w95-shortcut" href="https://facebook.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-globe"/></svg><span class="w95-label">facebook</span></a>
+								<a class="w95-shortcut" href="https://gmail.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-mail"/></svg><span class="w95-label">gmail</span></a>
+								<a class="w95-shortcut" href="https://tumblr.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-globe"/></svg><span class="w95-label">tumblr</span></a>
+								<a class="w95-shortcut" href="https://youtube.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-video"/></svg><span class="w95-label">youtube</span></a>
+								<a class="w95-shortcut" href="https://soundcloud.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-note"/></svg><span class="w95-label">soundcloud</span></a>
+								<a class="w95-shortcut" href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-disc"/></svg><span class="w95-label">steam</span></a>
+								<a class="w95-shortcut" href="https://gog.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-disc"/></svg><span class="w95-label">gog</span></a>
+								<a class="w95-shortcut" href="https://humblebundle.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">humblebundle</span></a>
+								<a class="w95-shortcut" href="https://hce.halomaps.org" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-map"/></svg><span class="w95-label">halomaps</span></a>
+								<a class="w95-shortcut" href="https://amazon.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">amazon</span></a>
+								<a class="w95-shortcut" href="https://ebay.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">ebay</span></a>
+								<a class="w95-shortcut" href="https://massdrop.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">massdrop</span></a>
+								<a class="w95-shortcut" href="https://j-list.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">j-list</span></a>
+								<a class="w95-shortcut" href="https://redbubble.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">redbubble</span></a>
+							</div>
+							<div class="w95-statusbar">19 object(s)</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sidebar s1" data-tab="main1"></div>
+				<div class="sidebar s2" data-tab="main2" hidden></div>
+
+			<div class="bottomcontainer">
+				<div class="button is-active" id="btn1" data-target="main1" role="button" tabindex="0" aria-label="Bookmarks tab"></div>
+				<div class="button" id="btn2" data-target="main2" role="button" tabindex="0" aria-label="Video tab"></div>
+
+				<div class="searchbar">
+					<form name="form1" action="https://google.com/search" target="_blank" method="get">
+						<input type="text" autocomplete="off" placeholder="google search..." name="q" class="searchinput" aria-label="Google search" />
+					</form>
+				</div>
+
+				<div class="marqueebar" id="marqueebar" aria-label="Game and PC news ticker">
+					<div class="tickertrack" id="tickertrack">
+						<span class="tickerset">LOADING NEWS...</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
