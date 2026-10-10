@@ -52,6 +52,11 @@
 			<symbol id="ic-map" viewBox="0 0 16 16">
 				<path d="M1 4l4.5-2v10L1 14zM5.5 2l5 2v10l-5-2zM10.5 4L15 2v10l-4.5 2z" fill="#f0e68c" stroke="#000000"/>
 			</symbol>
+			<symbol id="ic-pc" viewBox="0 0 16 16">
+				<rect x="1" y="2" width="14" height="10" fill="#c0c0c0" stroke="#000000"/>
+				<rect x="3" y="4" width="10" height="6" fill="#000080"/>
+				<rect x="5" y="13" width="6" height="2" fill="#808080" stroke="#000000"/>
+			</symbol>
 		</svg>
 		<div class="maincontainer">
 			<div class="time" id="time"></div>
@@ -92,8 +97,10 @@
 				</div>
 
 				<div class="pane" id="main2" data-tab="main2" hidden>
-					<div class="mainbox">
-						<div class="win95-window">
+					<div class="mainbox w95-desktop">
+						<a class="w95-shortcut w95-desktop-icon" id="w95-launcher" href="#" role="button" tabindex="0"><svg class="w95-icon"><use href="#ic-pc"/></svg><span class="w95-label">my_startpage</span></a>
+
+						<div class="win95-window" id="w95-window">
 							<div class="w95-titlebar">
 								<span class="w95-title">my_startpage</span>
 								<span class="w95-controls">
@@ -102,11 +109,35 @@
 									<button type="button" class="w95-btn" data-win-action="close" aria-label="Close">&times;</button>
 								</span>
 							</div>
-							<div class="w95-menubar">
-								<span><u>F</u>ile</span>
-								<span><u>E</u>dit</span>
-								<span><u>V</u>iew</span>
-								<span><u>H</u>elp</span>
+							<div class="w95-menubar" id="w95-menubar">
+								<div class="w95-menu">
+									<button type="button" class="w95-menubtn" aria-haspopup="true" aria-expanded="false"><u>F</u>ile</button>
+									<div class="w95-dropdown" role="menu" hidden>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="refresh">Refresh</button>
+										<div class="w95-menusep"></div>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="close">Close</button>
+									</div>
+								</div>
+								<div class="w95-menu">
+									<button type="button" class="w95-menubtn" aria-haspopup="true" aria-expanded="false"><u>E</u>dit</button>
+									<div class="w95-dropdown" role="menu" hidden>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="select-all">Select All</button>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="clear">Clear Selection</button>
+									</div>
+								</div>
+								<div class="w95-menu">
+									<button type="button" class="w95-menubtn" aria-haspopup="true" aria-expanded="false"><u>V</u>iew</button>
+									<div class="w95-dropdown" role="menu" hidden>
+										<button type="button" class="w95-menuitem is-checked" role="menuitem" data-action="statusbar">Status Bar</button>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="arrange">Arrange Icons</button>
+									</div>
+								</div>
+								<div class="w95-menu">
+									<button type="button" class="w95-menubtn" aria-haspopup="true" aria-expanded="false"><u>H</u>elp</button>
+									<div class="w95-dropdown" role="menu" hidden>
+										<button type="button" class="w95-menuitem" role="menuitem" data-action="about">About My Startpage...</button>
+									</div>
+								</div>
 							</div>
 							<div class="w95-body">
 								<a class="w95-shortcut" href="https://4chan.org/wg/" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-bubble"/></svg><span class="w95-label">/wg/</span></a>
@@ -129,7 +160,33 @@
 								<a class="w95-shortcut" href="https://j-list.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">j-list</span></a>
 								<a class="w95-shortcut" href="https://redbubble.com" target="_blank" rel="noopener noreferrer"><svg class="w95-icon"><use href="#ic-cart"/></svg><span class="w95-label">redbubble</span></a>
 							</div>
-							<div class="w95-statusbar">19 object(s)</div>
+							<div class="w95-statusbar" id="w95-statusbar">19 object(s)</div>
+						</div>
+
+						<div class="w95-taskbar" id="w95-taskbar" hidden>
+							<button type="button" class="w95-taskbtn" id="w95-taskbtn">my_startpage</button>
+						</div>
+
+						<div class="w95-contextmenu" id="w95-contextmenu" role="menu" hidden></div>
+
+						<div class="w95-about" id="w95-about" role="dialog" aria-modal="true" aria-labelledby="w95-about-title" hidden>
+							<div class="w95-about-titlebar">
+								<span id="w95-about-title">About My Startpage</span>
+								<button type="button" class="w95-btn" id="w95-about-x" aria-label="Close">&times;</button>
+							</div>
+							<div class="w95-about-body">
+								<svg class="w95-icon w95-about-icon"><use href="#ic-pc"/></svg>
+								<div>
+									<strong>My Startpage</strong><br />
+									Win95 edition<br />
+									Version 1995.10<br /><br />
+									19 shortcuts. 1 window.<br />
+									Freeware.
+								</div>
+							</div>
+							<div class="w95-about-footer">
+								<button type="button" class="w95-stdbtn" id="w95-about-ok">OK</button>
+							</div>
 						</div>
 					</div>
 				</div>

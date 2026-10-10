@@ -72,6 +72,9 @@ body{
 
 .s1 {
 	background-image: url(img/m1.gif);
+	background-size: cover;
+	background-position: 40% center;
+	background-repeat: no-repeat;
 }
 
 .s2 {
@@ -252,14 +255,21 @@ a:hover {
 }
 
 #main2 .mainbox {
-	display: flex;
+	position: relative;
+	overflow: hidden;
+	min-height: 296px;
+	background: #008080;
 }
 
 .win95-window {
-	flex: 1;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: calc(100% - 36px);
+	height: 84%;
 	display: flex;
 	flex-direction: column;
-	min-height: 296px;
+	min-height: 0;
 	background: #c0c0c0;
 	border-top: 2px solid #dfdfdf;
 	border-left: 2px solid #dfdfdf;
@@ -268,6 +278,18 @@ a:hover {
 	box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #ffffff;
 	text-align: left;
 	font-family: haxrcorp, monospace;
+	z-index: 2;
+}
+
+.win95-window.is-maximized {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.win95-window.is-dragging {
+	will-change: transform;
 }
 
 .w95-titlebar {
@@ -330,18 +352,110 @@ a:hover {
 
 .w95-menubar {
 	display: flex;
-	gap: 14px;
+	gap: 2px;
 	flex: none;
-	padding: 3px 6px;
+	padding: 3px 4px;
 	font-size: 13px;
 	background: #c0c0c0;
 	border-bottom: 1px solid #808080;
 	cursor: default;
+	position: relative;
+	z-index: 4;
 }
 
-.w95-menubar span:hover {
+.w95-menu {
+	position: relative;
+}
+
+.w95-menubtn {
+	margin: 0;
+	padding: 2px 7px;
+	border: 0;
+	background: transparent;
+	color: #000000;
+	font-family: haxrcorp, monospace;
+	font-size: 13px;
+	line-height: 14px;
+	cursor: default;
+}
+
+.w95-menubtn:hover,
+.w95-menu.is-open .w95-menubtn {
 	background: #000080;
 	color: #ffffff;
+}
+
+.w95-menubtn:focus-visible {
+	outline: 1px dotted #ffffff;
+	outline-offset: -3px;
+}
+
+.w95-dropdown,
+.w95-contextmenu {
+	position: absolute;
+	min-width: 158px;
+	padding: 2px;
+	background: #c0c0c0;
+	color: #000000;
+	border-top: 1px solid #dfdfdf;
+	border-left: 1px solid #dfdfdf;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #ffffff, 2px 2px 0 rgba(0, 0, 0, 0.4);
+	z-index: 10;
+}
+
+.w95-dropdown {
+	top: 100%;
+	left: 0;
+}
+
+.w95-contextmenu {
+	z-index: 20;
+}
+
+.w95-menuitem {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 3px 18px 3px 22px;
+	border: 0;
+	background: transparent;
+	color: #000000;
+	font-family: haxrcorp, monospace;
+	font-size: 13px;
+	line-height: 14px;
+	text-align: left;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.w95-menuitem:hover:not(:disabled),
+.w95-menuitem:focus-visible:not(:disabled) {
+	background: #000080;
+	color: #ffffff;
+	outline: none;
+}
+
+.w95-menuitem:disabled,
+.w95-menuitem.is-disabled {
+	color: #808080;
+	text-shadow: 1px 1px 0 #ffffff;
+}
+
+.w95-menuitem.is-checked::before {
+	content: "\2713";
+	position: absolute;
+	left: 7px;
+	top: 3px;
+}
+
+.w95-menusep {
+	height: 1px;
+	margin: 3px 2px;
+	background: #808080;
+	border-bottom: 1px solid #ffffff;
 }
 
 .w95-body {
@@ -409,6 +523,164 @@ a:hover {
 	border-right: 1px solid #ffffff;
 	border-bottom: 1px solid #ffffff;
 	cursor: default;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.w95-titlebar {
+	cursor: default;
+	user-select: none;
+	touch-action: none;
+}
+
+.win95-window.is-dragging .w95-titlebar {
+	cursor: move;
+}
+
+.w95-shortcut.is-selected .w95-label {
+	background: #000080;
+	outline: 1px dotted #ffffff;
+	outline-offset: 1px;
+}
+
+.w95-desktop-icon {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 72px;
+	z-index: 1;
+}
+
+.w95-taskbar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+	display: flex;
+	gap: 3px;
+	padding: 2px;
+	background: #c0c0c0;
+	border-top: 1px solid #ffffff;
+}
+
+.w95-taskbtn {
+	width: 150px;
+	margin: 0;
+	padding: 2px 6px;
+	text-align: left;
+	font-family: haxrcorp, monospace;
+	font-size: 12px;
+	color: #000000;
+	background: #c0c0c0;
+	border: 0;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.w95-taskbtn:active {
+	border-top-color: #000000;
+	border-left-color: #000000;
+	border-right-color: #ffffff;
+	border-bottom-color: #ffffff;
+	box-shadow: none;
+	padding: 3px 5px 1px 7px;
+}
+
+.w95-about {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 30;
+	width: 268px;
+	display: flex;
+	flex-direction: column;
+	background: #c0c0c0;
+	border-top: 2px solid #dfdfdf;
+	border-left: 2px solid #dfdfdf;
+	border-right: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+	box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #ffffff, 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.w95-about-titlebar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex: none;
+	height: 20px;
+	padding: 0 3px 0 5px;
+	background: linear-gradient(90deg, #000080, #1084d0);
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.w95-about-body {
+	display: flex;
+	gap: 12px;
+	padding: 14px 12px;
+	font-size: 13px;
+	line-height: 1.45;
+	color: #000000;
+}
+
+.w95-about-icon {
+	width: 32px;
+	height: 32px;
+	flex: none;
+}
+
+.w95-about-footer {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 10px 10px;
+}
+
+.w95-stdbtn {
+	min-width: 74px;
+	margin: 0;
+	padding: 4px 10px;
+	font-family: haxrcorp, monospace;
+	font-size: 12px;
+	color: #000000;
+	background: #c0c0c0;
+	border: 0;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+	cursor: pointer;
+}
+
+.w95-stdbtn:active {
+	border-top-color: #000000;
+	border-left-color: #000000;
+	border-right-color: #ffffff;
+	border-bottom-color: #ffffff;
+	box-shadow: none;
+	padding: 5px 9px 3px 11px;
+}
+
+.w95-stdbtn:focus-visible,
+.w95-taskbtn:focus-visible {
+	outline: 1px dotted #000000;
+	outline-offset: -3px;
+}
+
+.win95-window.is-arranging {
+	outline: 2px dashed #ffffff;
+	outline-offset: -4px;
 }
 
 @media (max-width: 700px) {
@@ -464,6 +736,26 @@ a:hover {
 		margin-top: 24px;
 		gap: 6px 14px;
 	}
+
+	.win95-window {
+		top: 4px;
+		left: 4px;
+		width: calc(100% - 8px);
+		height: calc(100% - 34px);
+	}
+
+	.w95-desktop-icon {
+		top: 4px;
+		left: 4px;
+	}
+
+	.w95-dropdown {
+		min-width: 132px;
+	}
+
+	.w95-about {
+		width: 240px;
+	}
 }
 
 @media (max-width: 420px) {
@@ -502,5 +794,9 @@ a:hover {
 @media (prefers-reduced-motion: reduce) {
 	.tickertrack {
 		animation: none;
+	}
+
+	.win95-window.is-arranging {
+		outline: none;
 	}
 }
